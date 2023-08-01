@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link href="https://fonts.cdnfonts.com/css/ds-digital" rel="stylesheet">
+    <title>Document</title>
+  </head>
+  <body>
+    <header role="heading">
+      <h1>Calculadora simple con HTML, CSS y JavaScript</h1>
+    </header>
+
+    <main role="main">
+      <div class="calculadora">
+        <div class="calc-display">
+          <div class="past-calc-value"></div>
+          <div class="calc-result"></div>
+        </div>
+        <div class="calc-keys">
+          <!-- SPECIAL OPERATIONS -->
+          <button class="calc-key special-calc-key" id="key-c" value="del">C</button>
+
+          <!-- NUMBERS -->
+          <button class="calc-key" id="number-key-1" value="1">1</button>
+          <button class="calc-key" id="number-key-2" value="2">2</button>
+          <button class="calc-key" id="number-key-3" value="3">3</button>
+          <button class="calc-key" id="number-key-4" value="4">4</button>
+          <button class="calc-key" id="number-key-5" value="5">5</button>
+          <button class="calc-key" id="number-key-6" value="6">6</button>
+          <button class="calc-key" id="number-key-7" value="7">7</button>
+          <button class="calc-key" id="number-key-8" value="8">8</button>
+          <button class="calc-key" id="number-key-9" value="9">9</button>
+          <button class="calc-key" id="number-key-0" value="0">0</button>
+
+          <!-- OPERATIONS -->
+          <button class="calc-key" id="operation-key-s" value="sum">+</button>
+          <button class="calc-key" id="operation-key-r" value="res">-</button>
+          <button class="calc-key" id="operation-key-m" value="mul">x</button>
+          <button class="calc-key" id="operation-key-d" value="div">&divide;</button>
+          <button class="calc-key" id="operation-key-c" value="coma">,</button>
+          <button class="calc-key" id="operation-key-g" value="go">=</button>
+          <!-- DEBERIA SER UNA PROMESA -->
+        </div>
+      </div>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
