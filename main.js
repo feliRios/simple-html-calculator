@@ -79,13 +79,66 @@ calcBtn.forEach((btn) => {
 
         case "coma":
           // Necessary operations to separating with a comma
-          displayContent += "."
+          if (!displayContent.includes(".")) {
+            displayContent += ".";
+          }
           break;
 
         case "go":
           // Necessary operations to watch the result
 
           switch (flag) {
+            case 0:
+              // This situation is in case that user presses "equal" more than one time
+
+              if (pastDisplayContent.textContent.includes("+")) {
+                let stageValue = displayContent;
+                let sum = suma(
+                  displayContent,
+                  JSON.parse(sessionStorage.getItem("pastValue"))
+                );
+                displayContent = sum;
+                displayContent.toString();
+                pastDisplayContent.textContent = `${stageValue} + ${JSON.parse(
+                  sessionStorage.getItem("pastValue")
+                )} =`;
+              } else if (pastDisplayContent.textContent.includes("-")) {
+                let stageValue = displayContent;
+                let res = resta(
+                  displayContent,
+                  JSON.parse(sessionStorage.getItem("pastValue"))
+                );
+                displayContent = res;
+                displayContent.toString();
+                pastDisplayContent.textContent = `${stageValue} - ${JSON.parse(
+                  sessionStorage.getItem("pastValue")
+                )} =`;
+              } else if (pastDisplayContent.textContent.includes("x")) {
+                let stageValue = displayContent;
+                let mul = multiplicacion(
+                  displayContent,
+                  JSON.parse(sessionStorage.getItem("pastValue"))
+                );
+                displayContent = mul;
+                displayContent.toString();
+                pastDisplayContent.textContent = `${stageValue} x ${JSON.parse(
+                  sessionStorage.getItem("pastValue")
+                )} =`;
+              } else if (pastDisplayContent.textContent.includes("/")) {
+                let stageValue = displayContent;
+                let div = division(
+                  displayContent,
+                  JSON.parse(sessionStorage.getItem("pastValue"))
+                );
+                displayContent = div;
+                displayContent.toString();
+                pastDisplayContent.textContent = `${stageValue} / ${JSON.parse(
+                  sessionStorage.getItem("pastValue")
+                )} =`;
+              }
+
+              break;
+
             case 1:
               // Addition
               let sum = suma(
@@ -138,6 +191,7 @@ calcBtn.forEach((btn) => {
                 sessionStorage.getItem("pastValue")
               )} =`;
               flag = 0;
+              break;
 
             case 4:
               // Division
@@ -170,7 +224,6 @@ calcBtn.forEach((btn) => {
     display.textContent = `${displayContent}`;
   });
 });
-
 
 function suma(a, b) {
   return parseFloat(a) + parseFloat(b);
